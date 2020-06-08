@@ -1,4 +1,4 @@
-package xyz.reactive.spark.runner
+package xyz.reactive.spark.sql.runner
   
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.{SaveMode, SparkSession}
@@ -10,7 +10,8 @@ object CustomDataSourceApp extends App {
 
   val dataDir = "file:///Users/Jackie/Projects/Scala-Projects/custom-sparksql-datasource/test-data/"
 
-  val df = spark.read.format("xyz.reactive.spark.datasource").load(dataDir)
+  val dataSourceFormat = "xyz.reactive.spark.sql.dummydatasource"
+  val df = spark.read.format(dataSourceFormat).load(dataDir)
 
   // Step 1 (Schema verification)
   df.printSchema()
@@ -20,7 +21,7 @@ object CustomDataSourceApp extends App {
   df.write
     .options(Map("format" -> "customFormat"))
     .mode(SaveMode.Overwrite)
-    .format("xyz.reactive.spark.datasource")
+    .format(dataSourceFormat)
     .save("out/")
   // Step 4 (Column Pruning)
   df.createOrReplaceTempView("salaries")

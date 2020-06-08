@@ -1,5 +1,5 @@
   
-package xyz.reactive.spark.datasource
+package xyz.reactive.spark.sql.dummydatasource
 
 import org.apache.hadoop.fs.Path
 

@@ -1,4 +1,4 @@
-package xyz.reactive.spark.datasource
+package xyz.reactive.spark.sql.dummydatasource
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{DataType, IntegerType, StringType, StructField, StructType}

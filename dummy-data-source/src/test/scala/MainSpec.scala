@@ -1,4 +1,4 @@
-package xyz.reactive.spark.datasource
+package xyz.reactive.spark.sql.dummydatasource
 import org.scalatest._
  
 class MainSpec extends FlatSpec with Matchers {

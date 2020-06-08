@@ -4,5 +4,5 @@ scala_binary(
     deps = [
         "//runner"
     ],
-    main_class = "xyz.reactive.spark.runner.CustomDataSourceApp"
+    main_class = "xyz.reactive.spark.sql.runner.CustomDataSourceApp"
 )
