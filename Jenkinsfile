@@ -10,7 +10,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "bazel test $(bazel query 'kind(\".*_test rule\", //...)')"
+                sh "bazel test $(bazel query \"kind(\".*_test rule\", //...)\")"
             }
         }
     }
