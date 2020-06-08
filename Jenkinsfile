@@ -4,7 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'Bazel build //:App' 
+                sh '''
+                MY_PROJECT_DIR=$(pwd);
+                git clone git@github.com:johnynek/bazel-deps.git;
+                cd bazel-deps;
+                bazel run //:parse generate -- --repo-root "$MY_PROJ_DIR" --sha-file 3rdparty/workspace.bzl --deps dependencies.yaml;
+                cd ..;
+                Bazel build //:App;
+                '''
             }
         }
 
