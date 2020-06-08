@@ -13,5 +13,5 @@ scala_library(
 scala_test(
     name = "test-main",
     srcs = ["src/test/scala/MainSpec.scala"],
-    deps = [":data-source"]
+    deps = [":dummy-data-source"]
 )
