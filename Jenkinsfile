@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                MY_PROJECT_DIR=$(pwd);
+                MY_PROJ_DIR=$(pwd);
                 git clone git@github.com:johnynek/bazel-deps.git;
                 cd bazel-deps;
                 bazel run //:parse generate -- --repo-root "$MY_PROJ_DIR" --sha-file 3rdparty/workspace.bzl --deps dependencies.yaml;
