@@ -6,7 +6,10 @@ pipeline {
             steps {
                 sh '''
                 MY_PROJ_DIR=$(pwd);
-                git clone git@github.com:johnynek/bazel-deps.git;
+                if [ ! -d "$MY_PROJ_DIR/bazel-deps" ]
+                then
+                    git clone git@github.com:johnynek/bazel-deps.git;
+                fi
                 cd bazel-deps;
                 bazel run //:parse generate -- --repo-root "$MY_PROJ_DIR" --sha-file 3rdparty/workspace.bzl --deps dependencies.yaml;
                 cd ..;
